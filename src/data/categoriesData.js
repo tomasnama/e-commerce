@@ -8,6 +8,11 @@ const categoriesData=[
       "id": "xasgy42fa",
       "name": "Headphones",
       "description": "Find best-fit for your ears"
+    },
+    {
+      "id": "msc93kfa21",
+      "name": "Mouse",
+      "description": "Precision mice for gaming and productivity"
     }
   ]
 

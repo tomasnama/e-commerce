@@ -58,6 +58,36 @@ const productsData=[
     "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/61kIoNSe3VL._SL1500_.jpg",
     "inStock": true,
     "categoryId": "xasgy42fa"
+  },
+  {
+    "id": "7c",
+    "name": "Logitech G502 Hero",
+    "price": 55,
+    "currency": "USD",
+    "delivery": true,
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/61mpMH5W3SL._AC_SL1500_.jpg",
+    "inStock": true,
+    "categoryId": "msc93kfa21"
+  },
+  {
+    "id": "8c",
+    "name": "Razer DeathAdder V2",
+    "price": 70,
+    "currency": "USD",
+    "delivery": false,
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/61-U1321OWL._AC_SL1500_.jpg",
+    "inStock": true,
+    "categoryId": "msc93kfa21"
+  },
+  {
+    "id": "9c",
+    "name": "SteelSeries Rival 3",
+    "price": 30,
+    "currency": "USD",
+    "delivery": true,
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/61S4Bs6WXWL._AC_SL1500_.jpg",
+    "inStock": false,
+    "categoryId": "msc93kfa21"
   }
 ]
 
