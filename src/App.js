@@ -22,13 +22,27 @@ function reducer(state, action) {
     case "REMOVE": {
       return {
         ...state,
-        cart: action.payload,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+    }
+    case "INCREASE": {
+      return {
+        ...state,
+        cart: state.cart.map((item, index) =>
+          index === action.payload
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
       };
     }
     case "DECREASE": {
       return {
         ...state,
-        cart: action.payload,
+        cart: state.cart.map((item, index) =>
+          index === action.payload
+            ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+            : item
+        ),
       };
     }
     default: {
@@ -39,7 +53,7 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [filterData, setFilterData] = useState(data);
+  const [filterData] = useState(data);
 
   // Handle add to cart button
   function addToCart(id) {
@@ -52,41 +66,17 @@ function App() {
   }
 
   function handleRemove(id) {
-    const updatedCart = state.cart.filter((item) => item.id != id);
-    dispatch({ type: "REMOVE", payload: updatedCart });
+    dispatch({ type: "REMOVE", payload: id });
   }
 
   function handleDecrease(index) {
-    const newArray = [...state.cart];
-    const updatedCart = newArray.map((item, id) => {
-      if (id == index) {
-        return {
-          ...item,
-          quantity: item.quantity - 1,
-        };
-      }
-      return item;
-    });
-
-    dispatch({ type: "DECREASE", payload: updatedCart });
+    dispatch({ type: "DECREASE", payload: index });
   }
 
   function handleIncrease(index) {
-    const newArray = [...state.cart];
-    const updatedCart = newArray.map((item, id) => {
-      if (id == index) {
-        return {
-          ...item,
-          quantity: item.quantity + 1,
-        };
-      }
-      return item;
-    });
-
-    dispatch({ type: "DECREASE", payload: updatedCart });
+    dispatch({ type: "INCREASE", payload: index });
   }
 
-  console.log(state.cart);
   return (
     <>
       <Routes>
