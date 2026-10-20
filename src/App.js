@@ -55,6 +55,12 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [filterData] = useState(data);
 
+  // Total units across all cart items (sum of quantities)
+  const cartCount = state.cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   // Handle add to cart button
   function addToCart(id) {
     const item = {
@@ -80,7 +86,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<MainLayout cartCount={cartCount} />}>
           <Route index element={<Home />} />
           <Route
             path="category/:id"
